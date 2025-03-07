@@ -1,4 +1,4 @@
-@layer base, default, brand, wide;
+@layer reset, base, default, brand, type-signature, type-wordmark, variant-colour, variant-white, desktop, wide;
 
 /* Import Tailwind CSS */
 @import "tailwindcss";

@@ -1,5 +1,3 @@
-@layer reset, default, type-signature, type-wordmark, variant-colour, variant-white, desktop;
-
 @layer default {
   .gcds-signature {
     display: flex;

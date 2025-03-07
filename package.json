@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "@cdssnc/gcds-tokens": "^2.6.0",
-    "bun-plugin-tailwind": "latest",
     "hono": "^4.7.4",
     "tailwindcss": "^4.0.11"
   },

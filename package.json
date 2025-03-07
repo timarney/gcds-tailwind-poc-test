@@ -1,0 +1,19 @@
+{
+  "name": "my-hono-app",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "tailwind": "tailwindcss -i ./src/styles.css -o ./public/styles.css --watch"
+  },
+  "dependencies": {
+    "@cdssnc/gcds-tokens": "^2.6.0",
+    "bun-plugin-tailwind": "latest",
+    "hono": "^4.7.4",
+    "tailwindcss": "^4.0.11"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "@tailwindcss/cli": "^4.0.11",
+    "wrangler": "^3.114.0"
+  }
+}

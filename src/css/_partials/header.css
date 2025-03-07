@@ -1,5 +1,3 @@
-@layer reset, default, brand, wide;
-
 @layer default {
   .gcds-header {
     margin: var(--gcds-header-margin) !important;

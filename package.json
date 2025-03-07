@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
-    "tailwind": "tailwindcss -i ./src/styles.css -o ./public/styles.css --watch"
+    "tailwind": "tailwindcss -i ./src/css/styles.css -o ./public/styles.css --watch"
   },
   "dependencies": {
     "@cdssnc/gcds-tokens": "^2.6.0",

@@ -6,9 +6,6 @@
     --font-sans: var(--gcds-font-families-body);
     --font-mono: var(--gcds-font-families-monospace);
     --spacing: 0.25rem;
-    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --default-transition-duration: 150ms;
-    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-font-feature-settings: var(--font-sans--font-feature-settings);
     --default-font-variation-settings: var(
@@ -25,9 +22,6 @@
     --spacing-225: var(--gcds-spacing-225);
     --spacing-300: var(--gcds-spacing-300);
     --spacing-600: var(--gcds-spacing-600);
-    --background-color-primary: var(
-    --gcds-bg-primary
-  );
     --text-color-primary: var(--gcds-text-primary);
   }
 }
@@ -173,32 +167,19 @@
   }
 }
 @layer utilities {
-  .\@container {
-    container-type: inline-size;
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
   .static {
     position: static;
-  }
-  .container {
-    width: 100%;
-    @media (width >= 30em) {
-      max-width: 30em;
-    }
-    @media (width >= 40em) {
-      max-width: 40em;
-    }
-    @media (width >= 48em) {
-      max-width: 48em;
-    }
-    @media (width >= 64em) {
-      max-width: 64em;
-    }
-    @media (width >= 80em) {
-      max-width: 80em;
-    }
-    @media (width >= 96rem) {
-      max-width: 96rem;
-    }
   }
   .mx-auto {
     margin-inline: auto;
@@ -218,26 +199,8 @@
   .mb-300 {
     margin-bottom: var(--spacing-300);
   }
-  .block {
-    display: block;
-  }
   .flex {
     display: flex;
-  }
-  .hidden {
-    display: none;
-  }
-  .table {
-    display: table;
-  }
-  .border-collapse {
-    border-collapse: collapse;
-  }
-  .transform {
-    transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
-  }
-  .resize {
-    resize: both;
   }
   .flex-wrap {
     flex-wrap: wrap;
@@ -245,37 +208,11 @@
   .gap-300 {
     gap: var(--spacing-300);
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
-  .bg-primary {
-    background-color: var(--background-color-primary);
-  }
   .px-225 {
     padding-inline: var(--spacing-225);
   }
-  .text-wrap {
-    text-wrap: wrap;
-  }
   .text-primary {
     color: var(--text-color-primary);
-  }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
-  .transition {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-  .ease-in-out {
-    --tw-ease: var(--ease-in-out);
-    transition-timing-function: var(--ease-in-out);
   }
   .sm\:px-600 {
     @media (width >= 40em) {
@@ -1558,6 +1495,111 @@
     box-shadow: var(--gcds-input-focus-box-shadow);
   }
 }
+@layer reset, default, disabled, error, focus;
+@layer reset {
+  .gcds-checkbox {
+    padding: 0;
+    .gcds-label {
+      &:before, &:after {
+        cursor: pointer;
+        content: "";
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+@layer default {
+  .gcds-checkbox {
+    position: relative;
+    max-width: var(--gcds-checkbox-max-width);
+    min-height: calc( var(--gcds-checkbox-input-height-and-width) - var(--gcds-checkbox-padding) );
+    font: var(--gcds-checkbox-font);
+    color: var(--gcds-checkbox-default-text);
+    margin: var(--gcds-checkbox-margin) !important;
+    padding: var(--gcds-checkbox-padding) 0 0;
+    transition: color ease-in-out 0.15s;
+    :is(.gcds-label, .gcds-hint, .gcds-error-message) {
+      padding: var(--gcds-checkbox-label-padding) !important;
+    }
+    .gcds-hint::part(hint) {
+      margin: 0;
+    }
+    input, .gcds-label:before, .gcds-label:after {
+      position: absolute;
+    }
+    input, .gcds-label:before {
+      top: 0;
+      left: 0;
+      width: var(--gcds-checkbox-input-height-and-width);
+      height: var(--gcds-checkbox-input-height-and-width);
+    }
+    input {
+      opacity: 0;
+    }
+    .gcds-label {
+      width: fit-content;
+      &:before {
+        border: var(--gcds-checkbox-input-border-width) solid currentcolor;
+        border-radius: var(--gcds-checkbox-input-border-radius);
+        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, outline ease-in-out 0.15s;
+      }
+      &:after {
+        border: var(--gcds-checkbox-check-border-width) solid currentcolor;
+        border-inline-start: 0 !important;
+        border-block-start: 0 !important;
+        height: var(--gcds-checkbox-check-height);
+        width: var(--gcds-checkbox-check-width);
+        left: var(--gcds-checkbox-check-left);
+        opacity: 0;
+        top: var(--gcds-checkbox-check-top);
+        transform: rotate(40deg);
+        transition: opacity 0.2s ease-in-out;
+      }
+    }
+    input:checked + .gcds-label:after {
+      opacity: 1;
+    }
+  }
+}
+@layer disabled {
+  .gcds-checkbox.gcds-checkbox--disabled {
+    color: var(--gcds-checkbox-disabled-text);
+    gcds-label {
+      --gcds-label-text: currentColor;
+      &:before, &:after {
+        cursor: not-allowed;
+      }
+      &:before {
+        border-color: currentcolor;
+        background-color: var(--gcds-checkbox-disabled-background);
+      }
+    }
+    .gcds-hint {
+      --gcds-hint-text: currentColor;
+    }
+  }
+}
+@layer error {
+  .gcds-checkbox.gcds-checkbox--error:not(:focus-within) .gcds-label {
+    &:before {
+      border-color: var(--gcds-checkbox-danger-border);
+    }
+    &:after {
+      color: var(--gcds-checkbox-danger-border);
+    }
+  }
+}
+@layer focus {
+  .gcds-checkbox:focus-within {
+    color: var(--gcds-checkbox-focus-color);
+    input:focus + .gcds-label:before {
+      outline: var(--gcds-checkbox-focus-outline-width) solid currentcolor;
+      outline-offset: var(--gcds-checkbox-input-border-width);
+      box-shadow: var(--gcds-checkbox-focus-box-shadow);
+      background: var(--gcds-checkbox-focus-background);
+    }
+  }
+}
 @layer base {
   *, ::after, ::before, ::backdrop, ::file-selector-button {
     border-color: var(--gcds-border-default, currentColor);
@@ -1625,43 +1667,4 @@
   .link-visited:visited {
     color: var(--gcds-link-visited);
   }
-}
-@property --tw-rotate-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: rotateX(0);
-}
-@property --tw-rotate-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: rotateY(0);
-}
-@property --tw-rotate-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: rotateZ(0);
-}
-@property --tw-skew-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: skewX(0);
-}
-@property --tw-skew-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: skewY(0);
-}
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --tw-ease {
-  syntax: "*";
-  inherits: false;
 }

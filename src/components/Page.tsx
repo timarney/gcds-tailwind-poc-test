@@ -53,13 +53,24 @@ export const Page: FC = () => {
           </ul>
 
           <div class="gcds-input-wrapper mt-10">
-            <label for="input" class="text-primary">Label</label>
+            <label for="input" class="text-primary">
+              Label
+            </label>
             <span class="gcds-f">Hint / Example message.</span>
             <input type="text"></input>
           </div>
 
-          <div class="bg-primary">
-            My block
+          <div className="gcds-checkbox">
+            <input
+              id="submission_name"
+              className="gc-input-checkbox__input"
+              name="responses"
+              type="checkbox"
+            />
+            <label className="gcds-label" htmlFor="submission_name">
+              <span className="sr-only">submission</span>
+              <span className="checkbox-label-text">submission</span>
+            </label>
           </div>
 
           <gcds-date-modified>2023-01-26</gcds-date-modified>

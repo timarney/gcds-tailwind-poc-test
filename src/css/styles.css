@@ -12,6 +12,9 @@
 
 @import "./_partials/input.css";
 
+/* TEST */
+@import "./_partials/forms/_checkbox.css";
+
 @layer base {
   *,
   ::after,

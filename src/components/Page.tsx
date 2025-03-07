@@ -51,6 +51,17 @@ export const Page: FC = () => {
               </a>
             </li>
           </ul>
+
+          <div class="gcds-input-wrapper mt-10">
+            <label for="input" class="text-primary">Label</label>
+            <span class="gcds-f">Hint / Example message.</span>
+            <input type="text"></input>
+          </div>
+
+          <div class="bg-primary">
+            My block
+          </div>
+
           <gcds-date-modified>2023-01-26</gcds-date-modified>
         </main>
         <gcds-footer

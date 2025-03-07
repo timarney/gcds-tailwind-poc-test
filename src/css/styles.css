@@ -10,6 +10,8 @@
 @import "./_partials/header.css";
 @import "./_partials/signature.css";
 
+@import "./_partials/input.css";
+
 @layer base {
   *,
   ::after,
@@ -275,6 +277,8 @@
   ); /* Highlight background colour. */
   --background-color-white: var(--gcds-bg-white); /* Main background colour. */
 
+  --bg-primary: var(--gcds-bg-primary); /* Highlight background colour. */
+
   /* ----- Border radius ----- */
   --radius-sm: var(--gcds-border-radius-sm);
   --radius-md: var(--gcds-border-radius-md);
@@ -298,6 +302,7 @@
   /* ----- Text colours ----- */
   --text-color-light: var(--gcds-text-light); /* Main light text colour. */
   --text-color-primary: var(--gcds-text-primary); /* Main text colour. */
+  --text-primary: var(--gcds-text-primary); /* Main text colour. */
   --text-color-secondary: var(
     --gcds-text-secondary
   ); /* Contrast text colour (alternative to primary). */

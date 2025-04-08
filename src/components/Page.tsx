@@ -55,7 +55,7 @@ export const Page: FC = () => {
           <gcds-date-modified>2023-01-26</gcds-date-modified>
         </main>
 
-        <div className="bg-blue-900 text-center py-4 mb-10">
+        <div className="text-center py-4 mb-10 bg-blue-900 bg-blue-950">
           <h2 className="text-2xl text-white bg-">Test</h2>
         </div>
 

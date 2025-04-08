@@ -13,7 +13,7 @@ export const Page: FC = () => {
           <h1 id="page-templates" class="mb-300">
             Page templates
           </h1>
-          <p class="mb-300 ">
+          <p class="mb-300 bg-">
             Page templates are pre-built pages that combine GC Design System
             components for common presentations. They’re fully responsive for
             multi-device use. Their page structures support a predictable,
@@ -52,29 +52,13 @@ export const Page: FC = () => {
             </li>
           </ul>
 
-          <div class="gcds-input-wrapper mt-10">
-            <label for="input" class="text-primary">
-              Label
-            </label>
-            <span class="gcds-f">Hint / Example message.</span>
-            <input type="text"></input>
-          </div>
-
-          <div className="gcds-checkbox">
-            <input
-              id="submission_name"
-              className="gc-input-checkbox__input"
-              name="responses"
-              type="checkbox"
-            />
-            <label className="gcds-label" htmlFor="submission_name">
-              <span className="sr-only">submission</span>
-              <span className="checkbox-label-text">submission</span>
-            </label>
-          </div>
-
           <gcds-date-modified>2023-01-26</gcds-date-modified>
         </main>
+
+        <div className="bg-blue-900 text-center py-4 mb-10">
+          <h2 className="text-2xl text-white bg-">Test</h2>
+        </div>
+
         <gcds-footer
           display="full"
           contextual-heading="Contextual navigation"
